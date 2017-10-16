@@ -29,10 +29,19 @@ class DocumentsController < ApplicationController
 
   def update
     # see before_action
+
+    if @document.update(document_params)
+      redirect_to @document
+    else
+      render 'edit'
+    end
   end
 
   def destroy
     # see before_action
+
+    @document.destroy
+      redirect_to documents_path
   end
 
   private
