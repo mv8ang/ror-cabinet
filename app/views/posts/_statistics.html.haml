@@ -1,0 +1,13 @@
+.level
+  .level-item.has-text-centered
+    %div
+      %p.heading Total Posts
+      %p.title= @posts.length
+  .level-item.has-text-centered
+    %div
+      %p.heading Total Comment Length
+      %p.title= @comments.length
+  .level-item.has-text-centered
+    %div
+      %p.heading Average Comment Length
+      %p.title= @posts.average(:content)

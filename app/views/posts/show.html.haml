@@ -1,6 +1,9 @@
-%h1= @post.title
-%p= @post.content
-
-= link_to 'See all', posts_path
-= link_to 'Edit', edit_post_path(@post)
-= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }
+.container.has-text-centered
+  .box
+    %h1.title= @post.title
+    %p= simple_format(@post.content)
+    %br
+    %p.tag= @post.created_at.to_formatted_s(:short)
+  .buttons
+    = link_to 'Edit', edit_post_path(@post), class: 'button is-dark is-outlined is-inverted'
+    = link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger is-outlined is-inverted'

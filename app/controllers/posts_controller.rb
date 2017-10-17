@@ -2,7 +2,13 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.where(user_id: current_user)
+    @posts = Post.where(user_id: current_user).order('created_at DESC')
+
+    @comments = ""
+    @posts.each do |post|
+      @comments << post.content
+    end
+
   end
   
   def show

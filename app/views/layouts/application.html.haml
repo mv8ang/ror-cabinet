@@ -26,23 +26,25 @@
                     
             %ul#navbarMenuHeroA.navbar-menu
               - if user_signed_in?
-                .navbar-end
-                  .navbar-item
-                    = link_to new_post_path, class: 'button is-primary is-inverted' do
-                      New post
-                      %span.icon
-                        %i.fa.fa-plus-circle
-                  .navbar-item
-                    = link_to destroy_user_session_path, method: :delete, class: 'button is-danger is-outlined is-inverted' do
-                      Sign out
-                      %span.icon
-                        %i.fa.fa-sign-out
+                .navbar-end.navbar-item
+                  = link_to new_post_path, class: 'button is-primary is-inverted' do
+                    New post
+                    %span.icon
+                      %i.fa.fa-plus-circle
+                  = link_to destroy_user_session_path, method: :delete, class: 'button is-danger is-outlined is-inverted' do
+                    Sign out
+                    %span.icon
+                      %i.fa.fa-sign-out
               - else
                 .navbar-end.navbar-item
                   = link_to new_user_session_path, class: 'button is-danger is-inverted' do
                     Log in
                     %span.icon
                       %i.fa.fa-sign-in
+                  = link_to new_user_registration_path, class: 'button is-danger is-inverted' do
+                    Sign up
+                    %span.icon
+                      %i.fa.fa-user-plus
 
       .hero-body
         = yield

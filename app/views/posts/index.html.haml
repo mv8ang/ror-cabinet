@@ -1,8 +1,24 @@
 - if @posts.length > 0
-  - @posts.each do |post|
-    %h2= link_to post.title, post
-    %p= "Submitted #{time_ago_in_words(post.created_at)} ago"
-    %p= "Edited #{time_ago_in_words(post.updated_at)} ago"
-    %p= truncate(post.content, length: 80)
+  = render 'statistics'
+
+  .container
+    - @posts.each_slice(3) do |slice|
+      .columns
+        - slice.each do |post|
+          .column
+            .box
+              = link_to post do
+                %h2.title.is-4= post.title
+              %p.tag.is-info= "Submitted #{time_ago_in_words(post.created_at)} ago"
+              %p.tag.is-warning= "Edited #{time_ago_in_words(post.updated_at)} ago"
+              %br
+              %br
+              %p.is-size-7= truncate(post.content, length: 50)
+
 - else
-  %h1 You haven't posted anything yet!
+  .container.has-text-centered
+    %section.section.is-medium
+      %h2.title.is-2 Hello! 🙏🏻
+      %h1.subtitle.is-3 You haven't posted anything yet
+      %br
+      = link_to 'Post something!', new_post_path, class: 'button is-large is-primary is-inverted'
