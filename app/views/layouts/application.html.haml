@@ -9,29 +9,46 @@
     
 
   %body
-    %header.navbar.is-transparent.is-light
-      .navbar-brand
-        .navbar-item= link_to 'Sudo Reddit', root_path, :class => 'button is-warning is-large is-outlined is-inverted'
+    %section.hero.is-dark
+      .hero-head
+        %nav.navbar.is-transparent.is-danger
+          .container
+            .navbar-brand
+              .navbar-item= link_to 'Sudo Reddit', root_path, :class => 'title is-4 button is-large is-danger'
+              %span.navbar-burger.burger{ data: { target: 'navbarMenuHeroA' } }
+                %span
+                %span
+                %span
+              -if user_signed_in?
+                .notification.is-danger.navbar-item
+                  %p.notice= notice
+                  %p.alert= alert
+                    
+            %ul#navbarMenuHeroA.navbar-menu
+              - if user_signed_in?
+                .navbar-end
+                  .navbar-item
+                    = link_to new_post_path, class: 'button is-primary is-inverted' do
+                      New post
+                      %span.icon
+                        %i.fa.fa-plus-circle
+                  .navbar-item
+                    = link_to destroy_user_session_path, method: :delete, class: 'button is-danger is-outlined is-inverted' do
+                      Sign out
+                      %span.icon
+                        %i.fa.fa-sign-out
+              - else
+                .navbar-end.navbar-item
+                  = link_to new_user_session_path, class: 'button is-danger is-inverted' do
+                    Log in
+                    %span.icon
+                      %i.fa.fa-sign-in
 
-      %ul.navbar-menu
-        - if user_signed_in?
-          .navbar-end.navbar-item
-            = link_to new_post_path, class: 'button is-primary' do
-              New post
-              %span.icon
-                %i.fa.fa-plus-circle
-            .navbar-item
-              = link_to destroy_user_session_path, method: :delete, class: 'button is-danger is-inverted' do
-                Sign out
-                %span.icon
-                  %i.fa.fa-sign-out
-        - else
-          .navbar-end.navbar-item
-            = link_to new_user_session_path, class: 'button is-primary' do
-              Log in
-              %span.icon
-                %i.fa.fa-sign-in
-            %p.notice= notice
-            %p.alert= alert
-
-    = yield
+      .hero-body
+        = yield
+        
+      .hero-foot
+        %nav.navbar.is-danger
+          .container
+            .navbar-end
+              = link_to 'Sudo Reddit 2017', root_path, class: 'navbar-item'

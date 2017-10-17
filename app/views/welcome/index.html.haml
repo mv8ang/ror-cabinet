@@ -1,18 +1,28 @@
-#banner
-  .banner_content
-    %h1.file-cabinet
-    %p Your life's work. Organised, always.
-    %button= link_to 'Enter', new_user_registration_path
+.container.has-text-centered
+  %section.section
+    %h1.title.is-1 Sudo Reddit
+    %p.subtitle Write shit. Impress people.
+    = link_to new_user_registration_path, class: 'button is-large is-danger is-inverted' do
+      Get started
+      %span.icon
+        %i.fa.fa-sign-in
+        
+  %section.section
+    %h2.title.is-2 Organise
+    .columns
+      .column
+        %p Master cleanse man bun four dollar toast etsy next level vexillologist chambray succulents photo booth cliche vinyl. Gluten-free af roof party ennui fixie food truck neutra migas. Synth single-origin coffee crucifix jianbing kitsch kickstarter gochujang gluten-free distillery enamel pin meggings 3 wolf moon.
+      .column
+        %p Small batch swag portland, mlkshk palo santo tumblr etsy hella you probably haven't heard of them hot chicken 3 wolf moon church-key retro pop-up. Leggings stumptown austin, unicorn irony swag squid literally iPhone wayfarers. Kinfolk gastropub post-ironic, pug mlkshk gentrify tousled vegan echo park viral. 
+      .column
+        %p Small batch swag portland, mlkshk palo santo tumblr etsy hella you probably haven't heard of them hot chicken 3 wolf moon church-key retro pop-up. Leggings stumptown austin, unicorn irony swag squid literally iPhone wayfarers. Kinfolk gastropub post-ironic, pug mlkshk gentrify tousled vegan echo park viral. 
 
-#callouts
-  .callout_inner
-    .wrapper
-      .callout
-        %h2 Organise
-        %p Master cleanse man bun four dollar toast etsy next level vexillologist chambray succulents photo booth cliche vinyl. Gluten-free af roof party ennui fixie food truck neutra migas. Synth single-origin coffee crucifix jianbing kitsch kickstarter gochujang gluten-free distillery enamel pin meggings 3 wolf moon. Small batch swag portland, mlkshk palo santo tumblr etsy hella you probably haven't heard of them hot chicken 3 wolf moon church-key retro pop-up. Leggings stumptown austin, unicorn irony swag squid literally iPhone wayfarers. Kinfolk gastropub post-ironic, pug mlkshk gentrify tousled vegan echo park viral. 
-
-#bottom_cta
-  .wrapper
-    %h2 Go ahead!
+  %section.section
+    %h2.title.is-2 Yesterday you said tomorrow
+    %p.subtitle Don't let your dreams be dreams
+    %p JUST DO IT!
     %br
-    %button= link_to 'Join now', new_user_registration_path
+    = link_to new_user_registration_path, class: 'button is-large is-danger is-inverted' do
+      Join now
+      %span.icon
+        %i.fa.fa-user-plus
