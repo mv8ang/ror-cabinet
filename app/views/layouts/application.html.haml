@@ -5,18 +5,32 @@
     = csrf_meta_tags
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    
 
   %body
-    %header
-      .header-inner
-        = link_to 'File Cabinet', root_path
+    %header.navbar.is-transparent.is-light
+      .navbar-brand
+        .navbar-item= link_to 'Sudo Reddit', root_path, :class => 'button is-warning is-large is-outlined is-inverted'
 
-        %nav
-          - if user_signed_in?
-            = link_to 'New post', new_post_path
-            = link_to 'Sign out', destroy_user_session_path, method: :delete
-          - else
-            = link_to 'Log in', new_user_session_path
+      %ul.navbar-menu
+        - if user_signed_in?
+          .navbar-end.navbar-item
+            = link_to new_post_path, class: 'button is-primary' do
+              New post
+              %span.icon
+                %i.fa.fa-plus-circle
+            .navbar-item
+              = link_to destroy_user_session_path, method: :delete, class: 'button is-danger is-inverted' do
+                Sign out
+                %span.icon
+                  %i.fa.fa-sign-out
+        - else
+          .navbar-end.navbar-item
+            = link_to new_user_session_path, class: 'button is-primary' do
+              Log in
+              %span.icon
+                %i.fa.fa-sign-in
             %p.notice= notice
             %p.alert= alert
 

@@ -15,10 +15,11 @@ gem 'coffee-rails', '~> 4.2'
 gem 'devise', '~> 4.3'
 gem 'simple_form', '~> 3.2'
 gem 'haml', '~> 5.0'
-
+gem 'bulma-rails', '~> 0.5.3'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'font-awesome-rails'
 
 
 group :development, :test do

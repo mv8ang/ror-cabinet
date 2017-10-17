@@ -1,0 +1,14 @@
+/*
+ *= require_self
+ */
+
+ @import 'normalize';
+ @import 'font-awesome';
+ @import 'bulma';
+ @import 'global.scss';
+ @import 'posts.scss';
+ @import 'welcome.scss';
+ 
+ .icon {
+   margin-left: 5px !important;
+ }
