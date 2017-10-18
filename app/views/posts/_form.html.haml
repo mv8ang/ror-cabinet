@@ -1,4 +1,14 @@
-= simple_form_for(@post) do |f|
-  = f.input :title
-  = f.input :content
-  = f.button :submit
+.columns.is-centered
+  .column.is-half
+    .box
+      = simple_form_for(@post) do |f|
+        .field
+          = f.label :title, class: 'label'
+          .control
+            = f.input_field :title, class: 'input'
+        .field  
+          = f.label :content, class: 'label'
+          .control
+            = f.input_field :content, class: 'textarea'
+        = f.button :submit, class: 'button is-primary'
+        = link_to 'Cancel', posts_path, class: 'button is-dark is-outlined'
