@@ -10,5 +10,8 @@
           = f.label :content, class: 'label'
           .control
             = f.input_field :content, class: 'textarea'
-        = f.button :submit, class: 'button is-primary'
-        = link_to 'Cancel', posts_path, class: 'button is-dark is-outlined'
+        
+        .field
+          .buttons.has-text-centered
+            = f.button :submit, class: 'button is-primary'
+            = link_to 'Cancel', posts_path, class: 'button is-dark is-outlined'

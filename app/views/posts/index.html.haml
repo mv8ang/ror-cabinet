@@ -8,7 +8,7 @@
           .column
             .box
               = link_to post do
-                %h2.title.is-4= post.title
+                %h4.title.is-4= post.title
               %p.tag.is-light= "Submitted #{time_ago_in_words(post.created_at)} ago"
               %p.tag.is-warning= "Edited #{time_ago_in_words(post.updated_at)} ago"
               %br
@@ -19,7 +19,7 @@
   .container.has-text-centered
     %section.section.is-medium
       %h2.title.is-2 Hello 🙏🏻
-      %h1.subtitle.is-3 You haven't posted anything yet.
+      %h4.subtitle.is-4 You haven't posted anything yet.
       %p You little bitch.
       %br
       = link_to 'Post something!', new_post_path, class: 'button is-large is-primary'
