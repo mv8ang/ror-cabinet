@@ -5,15 +5,7 @@
     - @posts.each_slice(3) do |slice|
       .columns
         - slice.each do |post|
-          .column
-            .box
-              = link_to post do
-                %h4.title.is-4= post.title
-              %p.tag.is-light= "Submitted #{time_ago_in_words(post.created_at)} ago"
-              %p.tag.is-warning= "Edited #{time_ago_in_words(post.updated_at)} ago"
-              %br
-              %br
-              %p.is-size-7= truncate(post.content, length: 50)
+          = render 'post', { :post => post }
 
 - else
   .container.has-text-centered
