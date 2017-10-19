@@ -14,4 +14,7 @@
         .field
           .buttons.has-text-centered
             = f.button :submit, class: 'button is-primary'
-            = link_to 'Cancel', posts_path, class: 'button is-dark is-outlined'
+            = link_to posts_path, class: 'button is-dark is-outlined' do
+              %span Cancel
+              %span.icon
+                %i.fa.fa-ban

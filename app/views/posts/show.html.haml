@@ -1,12 +1,25 @@
-.container.has-text-centered
+#welcome.container.has-text-centered
   .columns.is-centered
     .column.is-two-thirds
       .box
-        %h1.title= @post.title
+        %h1.title.has-text-info= @post.title
         %p= simple_format(@post.content)
         %br
         %p.tag= @post.created_at.to_formatted_s(:short)
+        - unless @post.created_at == @post.updated_at
+          %br
+          %p.tag= "Edited on #{@post.updated_at.to_formatted_s(:short)}"
       .buttons
-        = link_to 'Back to all', posts_path, class: 'button is-dark is-outlined is-inverted'
-        = link_to 'Edit', edit_post_path(@post), class: 'button is-dark is-outlined is-inverted'
-        = link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger is-outlined is-inverted'
+        = link_to posts_path, class: 'button is-dark is-outlined is-inverted' do
+          %span.is-hidden-mobile Dashboard
+          %span.icon
+            %i.fa.fa-th
+        = link_to edit_post_path(@post), class: 'button is-dark is-outlined is-inverted' do
+          %span.is-hidden-mobile Edit
+          %span.icon
+            %i.fa.fa-pencil
+        = link_to post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger is-outlined is-inverted' do
+          %span.is-hidden-mobile Delete
+          %span.icon
+            %i.fa.fa-minus-circle
+            

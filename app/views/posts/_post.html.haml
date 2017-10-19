@@ -1,9 +1,8 @@
-.column
+.column#post
   .box
     = link_to post do
-      %h4.title.is-4= post.title
-    %p.tag.is-light= "Submitted #{time_ago_in_words(post.created_at)} ago"
-    %p.tag.is-warning= "Edited #{time_ago_in_words(post.updated_at)} ago"
+      %h4.title.is-4.has-text-info= truncate(post.title, length: 30)
+    = link_to "Submitted #{time_ago_in_words(post.created_at)} ago#{post.updated_at != post.created_at ? '*': ''}", posts_path(query: { s: "created_at ASC" }), class: 'tag is-white'
     %br
     %br
     %p.is-size-7.has-text-weight-semibold= truncate(post.content, length: 60)

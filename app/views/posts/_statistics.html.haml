@@ -5,9 +5,9 @@
       %p.title= @posts.length
   .level-item.has-text-centered
     %div
-      %p.heading Total Comment Length
-      %p.title= @comments.length
+      %p.heading Total Post Length
+      %p.title= @comments.join.size
   .level-item.has-text-centered
     %div
-      %p.heading Average Comment Length
-      %p.title= @posts.average(:content)
+      %p.heading Average Post Length
+      %p.title= (@comments.join.size / @comments.size.to_f).round(1)

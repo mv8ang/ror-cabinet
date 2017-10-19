@@ -1,17 +1,23 @@
 - if @posts.length > 0
   = render 'statistics'
-
+        
   .container
     - @posts.each_slice(3) do |slice|
       .columns
         - slice.each do |post|
           = render 'post', { :post => post }
 
+    .field.has-text-centered
+      = link_to new_post_path, class: 'button is-success has-text-weight-bold' do
+        %span New post
+        %span.icon
+          %i.fa.fa-plus-circle
 - else
   .container.has-text-centered
     %section.section.is-medium
       %h2.title.is-2 Hello 🙏🏻
       %h4.subtitle.is-4 You haven't posted anything yet.
-      %p You little bitch.
-      %br
       = link_to 'Post something!', new_post_path, class: 'button is-large is-primary'
+      %br
+      %br
+      %p.is-size-7 You little bitch.

@@ -2,15 +2,14 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.where(user_id: current_user).order('created_at DESC')
+    @posts = Post.where(user_id: current_user).order('created_at DESC' || params[:s])
 
-    @comments = ""
+    @comments = []
     @posts.each do |post|
       @comments << post.content
     end
-
   end
-  
+
   def show
     # see before_action
   end
@@ -57,6 +56,6 @@ class PostsController < ApplicationController
     end
     
     def post_params
-      params.require(:post).permit(:title, :content)
+      params.require(:post).permit(:title, :content, :created_at, :updated_at)
     end
 end
